@@ -1,0 +1,48 @@
+<net.sf.appcompv21.ObservableScrollView
+    android:id="@+id/scroll_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:fillViewport="true"
+    android:overScrollMode="never"
+    tools:context=".StandaloneActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/standalone_header"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_banner"/>
+
+        <TextView
+            android:id="@+id/standalone_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="@string/radom" android:background="@android:color/white"/>
+
+        <include layout="@layout/toolbar_actionbar" android:id="@+id/standalone_toolbar"/>
+        <!--<android.support.v7.widget.Toolbar-->
+            <!--android:id="@+id/standalone_toolbar"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="?attr/colorPrimary"-->
+            <!--android:minHeight="?attr/actionBarSize"-->
+            <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
+            <!--app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>-->
+
+
+    </FrameLayout>
+
+
+</net.sf.appcompv21.ObservableScrollView>
+
+
+
