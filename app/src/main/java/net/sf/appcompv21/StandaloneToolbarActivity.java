@@ -107,6 +107,7 @@ public class StandaloneToolbarActivity extends ActionBarActivity implements Obse
                                                             titleHeight), 0), 1);
         }
 
+        //no elevation effect on pre Lollipop
         ViewCompat.setElevation(toolbar, gapFillProgress * maxHeaderElevation);
 //        ViewCompat.setElevation(mAddScheduleButton, gapFillProgress * mMaxHeaderElevation
 //                + mFABElevation);

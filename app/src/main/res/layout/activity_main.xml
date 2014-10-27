@@ -39,6 +39,11 @@
             android:id="@+id/nav_drawer_standalone_toolbar"
             style="@style/NavItem"
             android:text="Standalone Toolbar"/>
+
+        <TextView
+            android:id="@+id/nav_drawer_fab"
+            style="@style/NavItem"
+            android:text="Fab"/>
     </LinearLayout>
 
 </android.support.v4.widget.DrawerLayout>

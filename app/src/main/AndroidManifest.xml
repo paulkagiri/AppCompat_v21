@@ -22,6 +22,11 @@
             android:label="Standalone" >
         </activity>
 
+        <activity
+            android:name=".FabActivity"
+            android:label="Fab" >
+        </activity>
+
     </application>
 
 </manifest>

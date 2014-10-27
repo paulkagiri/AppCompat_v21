@@ -20,6 +20,8 @@ public class MainActivity extends ActionBarActivity {
 
     private TextView standaloneText;
 
+    private TextView fabText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +36,10 @@ public class MainActivity extends ActionBarActivity {
         drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, Gravity.START);
 
         standaloneText = (TextView) findViewById(R.id.nav_drawer_standalone_toolbar);
-        standaloneText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, StandaloneToolbarActivity.class));
-            }
-        });
+        standaloneText.setOnClickListener(new NavItemOnClickListener(StandaloneToolbarActivity.class));
+        fabText = (TextView) findViewById(R.id.nav_drawer_fab);
+        fabText.setOnClickListener(new NavItemOnClickListener(FabActivity.class));
+//        standaloneText = (TextView) findViewById(R.id.nav_drawer_standalone_toolbar);
 
     }
 
@@ -60,5 +60,20 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private class NavItemOnClickListener implements View.OnClickListener {
+        private Class<? extends  ActionBarActivity> activityClass;
+
+        public NavItemOnClickListener(
+                Class<? extends ActionBarActivity> activityClass) {
+
+            this.activityClass = activityClass;
+        }
+
+        @Override
+        public void onClick(View v) {
+            startActivity(new Intent(MainActivity.this, activityClass));
+        }
     }
 }
