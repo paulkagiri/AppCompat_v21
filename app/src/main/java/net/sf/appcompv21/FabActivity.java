@@ -1,43 +1,23 @@
 package net.sf.appcompv21;
 
 import android.graphics.Color;
-import android.graphics.drawable.AnimatedStateListDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 public class FabActivity extends ActionBarActivity {
 
     private static final String TAG = FabActivity.class.getName();
-
-    private Toolbar toolbar;
-
-    private ObservableScrollView scrollView;
-
-    private View headerView;
-
-    private TextView contentText;
-
-    private ViewTreeObserver.OnGlobalLayoutListener globalLayoutListener;
-
-    private int titleHeight;
-
-    private int toolbarHeight;
-
-    private int maxHeaderElevation;
 
     private View fab;
 
     private static final int[] STATE_CHECKED = new int[]{android.R.attr.state_checked};
     private static final int[] STATE_UNCHECKED = new int[]{};
 
+    private ImageView iconView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,22 +25,35 @@ public class FabActivity extends ActionBarActivity {
         setContentView(R.layout.activity_fab);
 
         fab = findViewById(R.id.add_schedule_button);
+        iconView = (ImageView) fab.findViewById(R.id.add_schedule_icon);
+        //changes icon color to white
+        iconView.setColorFilter(Color.WHITE);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ImageView iconView = (ImageView) fab.findViewById(R.id.add_schedule_icon);
+                //reveal effect, see AddToScheduleFABFragmetnLayout.java
                 Drawable drawable = iconView.getDrawable();
-                if (!(drawable instanceof AnimatedStateListDrawable)) {
-                    drawable = getResources().getDrawable(R.drawable.add_schedule_fab_icon_anim);
-                    iconView.setImageDrawable(drawable);
+//                if (!(drawable instanceof AnimatedStateListDrawable)) {
+//                    drawable = getResources().getDrawable(R.drawable.add_schedule_fab_icon_anim);
+//                    iconView.setImageDrawable(drawable);
+//                }
+                if (isL()) {
+                    iconView.setImageState(STATE_UNCHECKED, false);
+                    drawable.jumpToCurrentState();
+                    iconView.setImageState(STATE_CHECKED, false);
+                } else {
+                    //animates fade in/out
                 }
-                iconView.setColorFilter(Color.WHITE);
-                iconView.setImageState(STATE_UNCHECKED,false);
-                drawable.jumpToCurrentState();
-                iconView.setImageState(STATE_CHECKED,false);
+
             }
         });
 
     }
+
+    private static boolean isL() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
+    }
+
 
 }
