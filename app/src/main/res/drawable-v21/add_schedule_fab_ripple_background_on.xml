@@ -17,8 +17,8 @@
 
 <ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="#ccc">
     <item>
-        <shape>
-            <solid android:color="#fff" />
+        <shape android:shape="oval">
+        <solid android:color="#fff" />
         </shape>
     </item>
 </ripple>

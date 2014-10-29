@@ -1,6 +1,5 @@
 package net.sf.appcompv21;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -22,6 +21,8 @@ public class MainActivity extends ActionBarActivity {
 
     private TextView fabText;
 
+    private View rippleText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,10 +37,12 @@ public class MainActivity extends ActionBarActivity {
         drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, Gravity.START);
 
         standaloneText = (TextView) findViewById(R.id.nav_drawer_standalone_toolbar);
-        standaloneText.setOnClickListener(new NavItemOnClickListener(StandaloneToolbarActivity.class));
+        standaloneText
+                .setOnClickListener(new NavItemOnClickListener(StandaloneToolbarActivity.class));
         fabText = (TextView) findViewById(R.id.nav_drawer_fab);
         fabText.setOnClickListener(new NavItemOnClickListener(FabActivity.class));
-//        standaloneText = (TextView) findViewById(R.id.nav_drawer_standalone_toolbar);
+        rippleText = findViewById(R.id.nav_drawer_ripple);
+        rippleText.setOnClickListener(new NavItemOnClickListener(RippleRevealActivity.class));
 
     }
 
@@ -63,7 +66,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private class NavItemOnClickListener implements View.OnClickListener {
-        private Class<? extends  ActionBarActivity> activityClass;
+        private Class<? extends ActionBarActivity> activityClass;
 
         public NavItemOnClickListener(
                 Class<? extends ActionBarActivity> activityClass) {

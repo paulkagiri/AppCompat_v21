@@ -15,26 +15,32 @@
   -->
 
 <FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/add_schedule_button"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/fab_size"
     android:layout_height="@dimen/fab_size"
     android:layout_gravity="bottom|right"
     android:layout_margin="20dp"
-    android:visibility="visible"
+    android:background="@drawable/fab_reveal_selector"
     android:clickable="true"
-    android:focusable="true"
     android:elevation="8dp"
-    android:background="@drawable/add_schedule_fab_ripple_background_off"
-    android:stateListAnimator="@anim/add_schedule_fab_state_list_anim">
+    android:focusable="true"
+    android:stateListAnimator="@anim/add_schedule_fab_state_list_anim"
+    android:visibility="visible">
 
-    <ImageView android:id="@+id/add_schedule_icon"
+    <View
+        android:id="@+id/add_schedule_reveal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <ImageView
+        android:id="@+id/add_schedule_icon"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="center"
-        android:src="@drawable/add_schedule_fab_icon_anim"
+        android:layout_gravity="center"
         android:contentDescription="@null"
-        android:layout_gravity="center" />
+        android:scaleType="center"
+        android:src="@drawable/add_schedule_fab_icon_anim"/>
 
 </FrameLayout>
 

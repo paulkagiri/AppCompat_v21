@@ -1,0 +1,40 @@
+<RelativeLayout
+    android:id="@+id/scroll_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".RippleRevealActivity">
+
+    <Button
+        android:id="@+id/ripple_normal_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:text="Reveal"/>
+
+    <Button
+        android:id="@+id/ripple_ripple_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ripple_normal_btn"
+        android:background="@drawable/ripple_bg"
+        android:elevation="8dp"
+        android:text="Ripple"/>
+
+    <ImageView
+        android:id="@+id/ripple_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ripple_ripple_btn"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/lollipop"
+        android:visibility="invisible"/>
+
+
+</RelativeLayout>
+
+
+

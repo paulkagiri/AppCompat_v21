@@ -16,11 +16,12 @@
 -->
 
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-        android:color="@color/theme_accent_1_light">
-<item>
-        <shape android:shape="oval">
-            <solid android:color="@color/theme_accent_1" />
-        </shape>
-    </item>
+        android:color="@android:color/white">
+    <!--<item>-->
+    <!--<shape>-->
+    <!--<solid android:color="@color/theme_accent_1" />-->
+    <!--</shape>-->
+    <!--</item>-->
+    <item android:drawable="@drawable/button_bg_selector"/>
 </ripple>
 

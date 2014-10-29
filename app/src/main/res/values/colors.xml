@@ -6,9 +6,11 @@
     <color name="colorSecondary">@color/material_deep_teal_200</color>
     <color name="colorSecondaryDark">@color/material_deep_teal_500</color>
 
-    <color name="theme_accent_1_light">#8ad4fa</color>
     <color name="theme_accent_1">#00b0ff</color>
+    <color name="theme_accent_1_light">#8ad4fa</color>
 
     <color name="windowBackgroundColor">#333333</color>
     <color name="black_translucent">#80000000</color>
+    <drawable name="button1">#ff0000</drawable>
+    <drawable name="button2">#00ff00</drawable>
 </resources>
