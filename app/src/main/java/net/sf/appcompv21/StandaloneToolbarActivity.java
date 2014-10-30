@@ -48,6 +48,7 @@ public class StandaloneToolbarActivity extends ActionBarActivity implements Obse
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                finishAfterTransition();
                 finish();
             }
         });

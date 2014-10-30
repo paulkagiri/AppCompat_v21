@@ -15,15 +15,23 @@
             layout="@layout/toolbar_actionbar"/>
 
         <TextView
+            android:id="@+id/main_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/toolbar"
             android:text="@string/hello_world"/>
+
+        <Button
+            android:id="@+id/main_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/main_text"
+            android:text="Next"/>
     </RelativeLayout>
 
     <!--Nav drawer-->
     <LinearLayout
-        android:layout_width="240dp"
+        android:layout_width="280dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/windowBackgroundColor"
@@ -43,7 +51,7 @@
         <TextView
             android:id="@+id/nav_drawer_ripple"
             style="@style/NavItem"
-            android:text="Ripple and Reveal"/>
+            android:text="Ripple and Reveal (L)"/>
 
         <TextView
             android:id="@+id/nav_drawer_fab"
@@ -54,6 +62,11 @@
             android:id="@+id/nav_drawer_tint"
             style="@style/NavItem"
             android:text="Widget Tint"/>
+
+        <TextView
+            android:id="@+id/nav_drawer_clipping"
+            style="@style/NavItem"
+            android:text="View Clipping and Vector Drawable (L)"/>
     </LinearLayout>
 
 </android.support.v4.widget.DrawerLayout>

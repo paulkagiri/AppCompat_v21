@@ -1,0 +1,49 @@
+<LinearLayout
+    android:id="@+id/scroll_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    tools:context=".ClippingActivity">
+
+    <TextView
+        android:id="@+id/clipping_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-thin"
+        android:text="Only rectangle, oval and rounded rectangle are supported"
+        android:textSize="20sp"/>
+
+    <ImageView
+        android:id="@+id/clipping_img"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:elevation="8dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/lollipop"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Custom transition"
+        android:textSize="20sp"/>
+
+    <ImageView
+        android:id="@+id/clipping_heart"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/heart"
+
+        android:tint="@color/theme_accent_1"
+        android:transitionName="lollipop"/>
+
+
+</LinearLayout>
+
+
+

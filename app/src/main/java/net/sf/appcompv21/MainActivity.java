@@ -1,6 +1,8 @@
 package net.sf.appcompv21;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -9,6 +11,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
@@ -25,6 +28,8 @@ public class MainActivity extends ActionBarActivity {
 
     private View tintText;
 
+    private View clippingText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +43,16 @@ public class MainActivity extends ActionBarActivity {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
         drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, Gravity.START);
 
+        Button next = (Button) findViewById(R.id.main_next);
+        next.setOnClickListener(new View.OnClickListener() {
+            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, StandaloneToolbarActivity.class)/*,
+                              ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle()*/);
+            }
+        });
+
         standaloneText = (TextView) findViewById(R.id.nav_drawer_standalone_toolbar);
         standaloneText
                 .setOnClickListener(new NavItemOnClickListener(StandaloneToolbarActivity.class));
@@ -48,6 +63,9 @@ public class MainActivity extends ActionBarActivity {
 
         tintText = findViewById(R.id.nav_drawer_tint);
         tintText.setOnClickListener(new NavItemOnClickListener(WidgetTintingActivity.class));
+
+        clippingText = findViewById(R.id.nav_drawer_clipping);
+        clippingText.setOnClickListener(new NavItemOnClickListener(ClippingActivity.class));
 
     }
 
