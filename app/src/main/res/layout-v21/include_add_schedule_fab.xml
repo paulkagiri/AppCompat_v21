@@ -21,7 +21,7 @@
     android:layout_height="@dimen/fab_size"
     android:layout_gravity="bottom|right"
     android:layout_margin="20dp"
-    android:background="@drawable/fab_reveal_selector"
+    android:background="@drawable/reveal_unselected"
     android:clickable="true"
     android:elevation="8dp"
     android:focusable="true"

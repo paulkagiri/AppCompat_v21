@@ -1,7 +1,6 @@
 <net.sf.appcompv21.ObservableScrollView
-    android:id="@+id/scroll_view"
+    android:id="@+id/standalone_scroll_view"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -26,9 +25,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="30sp"
-            android:text="@string/random" android:background="@android:color/white"/>
+            android:text="@string/random"
+            android:background="@android:color/white"/>
 
-        <include layout="@layout/toolbar_actionbar" android:id="@+id/standalone_toolbar"/>
+        <include
+            layout="@layout/toolbar_actionbar"
+            android:id="@+id/standalone_toolbar"/>
 
         <!-- FAB -->
         <include layout="@layout/include_add_schedule_fab"/>

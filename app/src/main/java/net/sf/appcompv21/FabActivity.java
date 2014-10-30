@@ -5,7 +5,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.RippleDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -38,8 +37,8 @@ public class FabActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fab);
 
-        uncheckedDrawable = getResources().getDrawable(R.drawable.reveal_unchecked);
-        checkedDrawable = getResources().getDrawable(R.drawable.reveal_checked);
+        uncheckedDrawable = getResources().getDrawable(R.drawable.reveal_unselected);
+        checkedDrawable = getResources().getDrawable(R.drawable.reveal_selected);
 
         fab = findViewById(R.id.add_schedule_button);
 
@@ -62,46 +61,44 @@ public class FabActivity extends ActionBarActivity {
 //                    iconView.setImageDrawable(drawable);
 //                }
                 if (isL()) {
-
                     iconView.setImageState(selected ? STATE_CHECKED : STATE_UNCHECKED, false);
                     drawable.jumpToCurrentState();
                     iconView.setImageState(selected ? STATE_UNCHECKED : STATE_CHECKED, false);
                 } else {
                     //animates fade in/out
                 }
-
-                reveal(true);
+                reveal();
             }
 
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-            private void reveal(boolean anim) {
+            private void reveal() {
+                Animator animator = ViewAnimationUtils.createCircularReveal(
+                        revealView,
+                        (int) fab.getWidth() / 2, (int) fab.getHeight() / 2, 0,
+                        fab.getWidth() / 2);
+                animator.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        afterReveal();
+                    }
+                });
 
-                if (anim) {
-                    Animator animator = ViewAnimationUtils.createCircularReveal(
-                            revealView,
-                            (int) fab.getWidth() / 2, (int) fab.getHeight() / 2, 0,
-                            fab.getWidth() / 2);
-                    animator.addListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            reveal(false);
-                        }
-                    });
+                animator.start();
 
-                    animator.start();
+                revealView.setVisibility(View.VISIBLE);
+                revealView.setBackground(selected ? checkedDrawable : uncheckedDrawable);
 
-                    revealView.setVisibility(View.VISIBLE);
-                    revealView.setBackground(selected ? checkedDrawable : uncheckedDrawable);
-                } else {
-                    revealView.setVisibility(View.GONE);
+            }
 
-                    RippleDrawable newBackground = (RippleDrawable) getResources()
-                            .getDrawable(selected
-                                                 ? R.drawable.add_schedule_fab_ripple_background_on
-                                                 : R.drawable.add_schedule_fab_ripple_background_off);
-                    fab.setBackground(newBackground);
-                }
+            @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+            private void afterReveal() {
+                revealView.setVisibility(View.GONE);
 
+                Drawable newBackground = getResources()
+                        .getDrawable(selected
+                                             ? R.drawable.reveal_selected
+                                             : R.drawable.reveal_unselected);
+                fab.setBackground(newBackground);
             }
         });
 

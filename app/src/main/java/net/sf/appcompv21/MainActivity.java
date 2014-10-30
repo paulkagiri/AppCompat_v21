@@ -23,6 +23,8 @@ public class MainActivity extends ActionBarActivity {
 
     private View rippleText;
 
+    private View tintText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +45,9 @@ public class MainActivity extends ActionBarActivity {
         fabText.setOnClickListener(new NavItemOnClickListener(FabActivity.class));
         rippleText = findViewById(R.id.nav_drawer_ripple);
         rippleText.setOnClickListener(new NavItemOnClickListener(RippleRevealActivity.class));
+
+        tintText = findViewById(R.id.nav_drawer_tint);
+        tintText.setOnClickListener(new NavItemOnClickListener(WidgetTintingActivity.class));
 
     }
 

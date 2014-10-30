@@ -41,14 +41,19 @@
             android:text="Standalone Toolbar"/>
 
         <TextView
+            android:id="@+id/nav_drawer_ripple"
+            style="@style/NavItem"
+            android:text="Ripple and Reveal"/>
+
+        <TextView
             android:id="@+id/nav_drawer_fab"
             style="@style/NavItem"
             android:text="Fab"/>
 
         <TextView
-            android:id="@+id/nav_drawer_ripple"
+            android:id="@+id/nav_drawer_tint"
             style="@style/NavItem"
-            android:text="Ripple and Reveal"/>
+            android:text="Widget Tint"/>
     </LinearLayout>
 
 </android.support.v4.widget.DrawerLayout>

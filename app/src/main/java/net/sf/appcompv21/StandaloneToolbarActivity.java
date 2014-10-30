@@ -34,7 +34,7 @@ public class StandaloneToolbarActivity extends ActionBarActivity implements Obse
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_standalone);
 
-        scrollView = (ObservableScrollView) findViewById(R.id.scroll_view);
+        scrollView = (ObservableScrollView) findViewById(R.id.standalone_scroll_view);
         scrollView.addCallbacks(this);
 
         headerView = findViewById(R.id.standalone_header);

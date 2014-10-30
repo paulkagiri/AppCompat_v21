@@ -33,7 +33,8 @@
         </activity>
 
         <activity
-            android:name=".WidgetTintingActivity">
+            android:name=".WidgetTintingActivity"
+            android:label="Tint">
         </activity>
 
     </application>
