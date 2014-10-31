@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<transitionSet>
-    <changeBounds/>
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
+    <changeBounds>
+        <targets>
+            <target android:targetId="@id/clipping_heart_text"/>
+            <target android:targetId="@id/image_text"/>
+        </targets>
+    </changeBounds>
+    <changeTransform>
+        <targets>
+            <target android:targetId="@id/clipping_heart_text"/>
+            <target android:targetId="@id/image_text"/>
+        </targets>
+    </changeTransform>
 
-    <changeImageTransform/>
+
+    <changeImageTransform>
+        <targets>
+            <target android:targetId="@id/clipping_heart"/>
+            <target android:targetId="@id/image"/>
+        </targets>
+    </changeImageTransform>
 
 </transitionSet>

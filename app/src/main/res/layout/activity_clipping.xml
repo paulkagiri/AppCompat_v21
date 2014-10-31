@@ -27,6 +27,7 @@
         android:src="@drawable/lollipop"/>
 
     <TextView
+        android:id="@+id/clipping_heart_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
@@ -40,7 +41,7 @@
         android:src="@drawable/heart"
 
         android:tint="@color/theme_accent_1"
-        android:transitionName="lollipop"/>
+        android:transitionName="lollipop2"/>
 
 
 </LinearLayout>

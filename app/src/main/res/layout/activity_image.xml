@@ -1,23 +1,34 @@
-<RelativeLayout
+<FrameLayout
     android:id="@+id/scroll_view"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context=".ClippingActivity">
+    tools:context=".ImageActivity">
 
     <ImageView
         android:id="@+id/image"
-        android:transitionName="lollipop"
+        android:transitionName="heart"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
         android:src="@drawable/heart"
         android:tint="@color/theme_accent_1"/>
 
+    <TextView
+        android:id="@+id/image_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:transitionName="text"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Custom transition"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="#bbbbbb"
+        android:textSize="30sp"/>
 
-</RelativeLayout>
+
+</FrameLayout>
 
 
 

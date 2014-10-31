@@ -12,6 +12,7 @@ import android.transition.ChangeBounds;
 import android.transition.ChangeImageTransform;
 import android.transition.Fade;
 import android.transition.TransitionSet;
+import android.util.Pair;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewOutlineProvider;
@@ -40,6 +41,8 @@ public class ClippingActivity extends ActionBarActivity {
 
     private ImageView vector;
 
+    private View heartText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 //        initTransition();
@@ -47,6 +50,7 @@ public class ClippingActivity extends ActionBarActivity {
 
         setContentView(R.layout.activity_clipping);
         view = findViewById(R.id.clipping_img);
+        heartText = findViewById(R.id.clipping_heart_text);
         vector = (ImageView) findViewById(R.id.clipping_heart);
         vector.setOnClickListener(new View.OnClickListener() {
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -54,8 +58,14 @@ public class ClippingActivity extends ActionBarActivity {
             public void onClick(final View v) {
                 Intent intent = new Intent(ClippingActivity.this, ImageActivity.class);
 //                startActivity(intent);
+                //the 'sharedElementName' has to match in the called activity
+//                ActivityOptions activityOptions = ActivityOptions
+//                        .makeSceneTransitionAnimation(ClippingActivity.this, v, "lollipop");
+
                 ActivityOptions activityOptions = ActivityOptions
-                        .makeSceneTransitionAnimation(ClippingActivity.this, v, "lollipop");
+                        .makeSceneTransitionAnimation(ClippingActivity.this,
+                                                      new Pair<View, String>(v, "heart"),
+                                                      new Pair<View, String>(heartText, "text"));
                 startActivity(intent,
                               activityOptions.toBundle());
 
